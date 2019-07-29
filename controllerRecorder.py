@@ -1,18 +1,32 @@
 import cInit
 from time import sleep
 import time
+import datetime
+import recorderSession
+
+List = []
+
+sessionNumber = 0
 
 start_Time = time.time()
+recordingSession = session(sessionNumber, datetime.datetime.now().date(), datetime.datetime.now().time())
 
 print("Controller Recorder Active")
 print("--------------------------")
 
 while True:
-    
-    # Reset
+
+    # Reset & Record Session
     if cInit.button_Select.gpioPin.is_held:
         print("Release to Clear Button Stats and Reset Time")
         cInit.button_Select.wait_for_release()
+        totalButtonPresses = cInit.button_A.buttonCount + cInit.button_B.buttonCount + cInit.button_X.buttonCount + cInit.button_Y.buttonCount
+                             + cInit.button_LB.buttonCount + cInit.button_RB.buttonCount + cInit.button_LT.buttonCount + cInit.button_RT.buttonCount
+                             + cInit.button_Up.buttonCount + cInit.button_Down.buttonCount + cInit.button_Left.buttonCount + cInit.button_Right.buttonCount
+        recordingSession.end(totalButtonPresses)
+        List.append(recordingSession)
+        sessionNumber += 1
+        recordingSession = session(sessionNumber, datetime.datetime.now().date(), datetime.datetime.now().time())
         cInit.button_A.clearAllStats()
         cInit.button_B.clearAllStats()
         cInit.button_X.clearAllStats()
@@ -26,7 +40,8 @@ while True:
         cInit.button_Right.clearAllStats()
         cInit.button_Left.clearAllStats()
         start_Time = time.time()
-        print("Button Stats Cleared / Time Reset")
+        print("Button Stats Cleared / Time Reset - Session Recorded")
+        recordingSession.start()
     
     if cInit.button_A.gpioPin.is_pressed:
         cInit.button_A.incrementButtonCount()

@@ -1,10 +1,10 @@
 import time
-import asyncio
 from gpiozero import Button
 
 class controllerButton:   
     name = ""
     buttonCount = 0
+    actionType = ""
     gpioPin = None
     pressed_Time = 0
     released_Time = 0
@@ -12,10 +12,17 @@ class controllerButton:
     sum_HoldTime = 0
     avg_HoldTime = 0
     
-    def __init__(self, buttonName = "", buttonCount = 0, gPIN = None):
+    def __init__(self, buttonName = "", actionType = "None", buttonCount = 0, gpioPIN = None):
         self.name = buttonName
+        self.actionType = actionType
         self.buttonCount = buttonCount
-        self.gpioPin = gPIN
+        self.gpioPin = gpioPIN
+
+    def setName(self, buttonName):
+        self.name = buttonName
+
+    def setActionType(self, actionType):
+        self.actionType = actionType
         
     def incrementButtonCount(self):
         self.buttonCount = self.buttonCount + 1
@@ -41,7 +48,7 @@ class controllerButton:
         self.sum_HoldTime = 0
         
     def showStats(self):   
-        print(self.name + ": " + str(self.buttonCount) +
+        print(self.name + " (" + self.actionType + "): " + str(self.buttonCount) +
               " | Time Pressed: " + str("{:.3f} sec".format(self.pressed_Time)) +
               " | Held for: " + str("{:.3f} sec".format(self.hold_Time)) +
               " | Avg. Hold Time: " + str("{:.3f} sec".format(self.avg_HoldTime)))
