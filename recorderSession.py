@@ -16,10 +16,10 @@ class session:
     def start(self):
         self.date = datetime.datetime.now().date()
         self.startTime = datetime.datetime.now().time()
-        print("Session Started - {0} : {1}", self.date, self.startTime)
+        print("Session Started - {} : {}".format(self.date, self.startTime))
 
     def end(self, totalButtonPresses, buttonsPerMinute):
-        self.endTime = datetime.datetime.noww().time()
-        print("Session Ended - {0}", self.endTime)
+        self.endTime = datetime.datetime.now().time()
+        print("Session Ended - {}".format(self.endTime))
 
         

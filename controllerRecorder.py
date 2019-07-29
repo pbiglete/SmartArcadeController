@@ -2,7 +2,7 @@ import cInit
 from time import sleep
 import time
 import datetime
-import recorderSession
+from recorderSession import session
 
 List = []
 
@@ -19,11 +19,9 @@ while True:
     # Reset & Record Session
     if cInit.button_Select.gpioPin.is_held:
         print("Release to Clear Button Stats and Reset Time")
-        cInit.button_Select.wait_for_release()
-        totalButtonPresses = cInit.button_A.buttonCount + cInit.button_B.buttonCount + cInit.button_X.buttonCount + cInit.button_Y.buttonCount
-                             + cInit.button_LB.buttonCount + cInit.button_RB.buttonCount + cInit.button_LT.buttonCount + cInit.button_RT.buttonCount
-                             + cInit.button_Up.buttonCount + cInit.button_Down.buttonCount + cInit.button_Left.buttonCount + cInit.button_Right.buttonCount
-        recordingSession.end(totalButtonPresses)
+        cInit.button_Select.gpioPin.wait_for_release()
+        totalButtonPresses = cInit.button_A.buttonCount + cInit.button_B.buttonCount + cInit.button_X.buttonCount + cInit.button_Y.buttonCount + cInit.button_LB.buttonCount + cInit.button_RB.buttonCount + cInit.button_LT.buttonCount + cInit.button_RT.buttonCount + cInit.button_Up.buttonCount + cInit.button_Down.buttonCount + cInit.button_Left.buttonCount + cInit.button_Right.buttonCount
+        recordingSession.end(totalButtonPresses, 0)
         List.append(recordingSession)
         sessionNumber += 1
         recordingSession = session(sessionNumber, datetime.datetime.now().date(), datetime.datetime.now().time())
