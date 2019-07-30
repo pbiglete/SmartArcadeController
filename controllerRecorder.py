@@ -35,9 +35,6 @@ def main():
             
         sleep(0.01)
 
-if __name__ == '__main__':
-    main()
-
 def recordButtonPress(button, start_Time):
     button.incrementButtonCount()
     button.calcCurrentButtonTimings(start_Time)
@@ -95,3 +92,6 @@ def clearAllButtonStats():
     cInit.button_Down.clearAllStats()
     cInit.button_Right.clearAllStats()
     cInit.button_Left.clearAllStats()
+    
+if __name__ == '__main__':
+    main()
