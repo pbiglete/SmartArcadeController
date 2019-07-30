@@ -22,9 +22,14 @@ class session:
         self.endTime = datetime.datetime.now().time()
         print("Session {} Ended - {}".format(self.sessionNumber, self.endTime))
         self.buttonList = buttonList
-        
-        # Create a JSON object each recorded object
+        # Create a JSON object for each recorded object
             # Session Stats
+            # Session Timings
+                # A Button Stats
+                    # Button Count / Timestamps
+                # B Button Stats
+                    #
+                # Etc
 
 
 

@@ -21,6 +21,7 @@ buttonList = [ button_A, button_B, button_X, button_Y, button_LB, button_RB, but
 
 print("Controller Init Loaded")
 print("----------------------")
+print("{} Buttons Ready".format(buttonList.count))
 for button in buttonList:
     button.showStats()
 print("----------------------")
