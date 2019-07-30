@@ -17,23 +17,12 @@ button_Down = controllerButton("Down", "Directional", 0, Button(15))
 button_Left = controllerButton("Left", "Directional", 0, Button(18))
 button_Right = controllerButton("Right", "Directional", 0, Button(23))
 
+buttonList = [ button_A, button_B, button_X, button_Y, button_LB, button_RB, button_LT, button_RT, button_Up, button_Down, button_Left, button_Right, button_Start, button_Select]
 
 print("Controller Init Loaded")
 print("----------------------")
-button_A.showStats()
-button_B.showStats()
-button_X.showStats()
-button_Y.showStats()
-button_LB.showStats()
-button_RB.showStats()
-button_LT.showStats()
-button_RT.showStats()
-button_Select.showStats()
-button_Start.showStats()
-button_Up.showStats()
-button_Down.showStats()
-button_Left.showStats()
-button_Right.showStats()
+for button in buttonList:
+    button.showStats()
 print("----------------------")
 
 

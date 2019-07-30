@@ -5,21 +5,28 @@ class session:
     # Date
     # Start Time
     # End Time
-    # Total Button Presses
-    # Button Presses per Minute
+    # Button Statistics
 
     def __init__(self, sessionNumber, date, startTime):
         self.sessionNumber = sessionNumber
         self.date = date
         self.startTime = startTime
+        self.buttonList = []
 
     def start(self):
         self.date = datetime.datetime.now().date()
         self.startTime = datetime.datetime.now().time()
-        print("Session Started - {} : {}".format(self.date, self.startTime))
+        print("Session {} Started - {} : {}".format(self.sessionNumber, self.date, self.startTime))
 
-    def end(self, totalButtonPresses, buttonsPerMinute):
+    def end(self, buttonList = [], *args):
         self.endTime = datetime.datetime.now().time()
-        print("Session Ended - {}".format(self.endTime))
+        print("Session {} Ended - {}".format(self.sessionNumber, self.endTime))
+        self.buttonList = buttonList
+        
+        # Create a JSON object each recorded object
+            # Session Stats
+
+
+
 
         
