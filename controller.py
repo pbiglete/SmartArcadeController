@@ -49,9 +49,6 @@ class controllerButton:
         self.avg_HoldTime = 0
         self.sum_HoldTime = 0
 
-    def clearTimestamps():
-        self.pressed_Timestamps.clear()
-        
     def showStats(self):   
         print(self.name + " (" + self.actionType + "): " + str(self.buttonCount) +
               " | Time Pressed: " + str("{:.3f} sec".format(self.pressed_Time)) +
@@ -62,7 +59,7 @@ class controllerButton:
         self.clearCurrentButtonTimings()
         self.clearAvgButtonTimings()
         self.clearButtonCount()
-        self.clearTimestamps()
+        self.pressed_Timestamps.clear()
 
     def logActionToTxtFile(self):
         buttonLogFile = open("Action_Log.txt", "a")

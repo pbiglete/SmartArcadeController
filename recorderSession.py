@@ -38,9 +38,13 @@ class session:
         
         for button in buttonList:
             totalButtonCount += button.buttonCount
-        for button in buttonList:
-            sessionFile.write("{} | {} | Usage Rate: {}/{} ({}%)".format(button.name, button.actionType, button.buttonCount, totalButtonCount, ((button.buttonCount / totalButtonCount) * 100)))
-        
+            
+        if totalButtonCount is 0:
+            pass
+        else:
+            for button in buttonList:
+                sessionFile.write("{} | {} | Usage Rate: {}/{} ({:.3f}%) \n".format(button.name, button.actionType, button.buttonCount, totalButtonCount, ((button.buttonCount / totalButtonCount) * 100)))
+            
         sessionFile.close()
 
 
