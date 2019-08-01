@@ -1,23 +1,18 @@
 import time
 from gpiozero import Button
 
-class controllerButton:   
-    name = ""
-    buttonCount = 0
-    actionType = ""
-    gpioPin = None
-    pressed_Time = 0
-    released_Time = 0
-    hold_Time = 0
-    sum_HoldTime = 0
-    avg_HoldTime = 0
-    pressed_Timestamps = []
-    
+class controllerButton:       
     def __init__(self, buttonName = "", actionType = "None", buttonCount = 0, gpioPIN = None):
         self.name = buttonName
         self.actionType = actionType
         self.buttonCount = buttonCount
         self.gpioPin = gpioPIN
+        self.pressed_Time = 0
+        self.released_Time = 0
+        self.hold_Time = 0
+        self.sum_HoldTime = 0
+        self.avg_HoldTime = 0
+        self.pressed_Timestamps = []
 
     def setName(self, buttonName):
         self.name = buttonName
