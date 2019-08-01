@@ -22,6 +22,7 @@ class session:
         self.endTime = datetime.datetime.now().time()
         print("Session {} Ended - {}".format(self.sessionNumber, self.endTime))
         self.buttonList = buttonList
+        self.convertStatsToTxt(buttonList)
         # Create a JSON object for each recorded object
             # Session Stats
             # Session Timings
@@ -30,6 +31,18 @@ class session:
                 # B Button Stats
                     #
                 # Etc
+
+    def convertStatsToTxt(self, buttonList = [], *args):
+        totalButtonCount = 0
+        sessionFile = open("session_{}.txt".format(self.sessionNumber), "a")
+        
+        for button in buttonList:
+            totalButtonCount += button.buttonCount
+        for button in buttonList:
+            sessionFile.write("{} | {} | Usage Rate: {}/{} ({}%)".format(button.name, button.actionType, button.buttonCount, totalButtonCount, ((button.buttonCount / totalButtonCount) * 100)))
+        
+        sessionFile.close()
+
 
 
 
