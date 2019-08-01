@@ -17,6 +17,7 @@ button_Down = controllerButton("Down", "Directional", 0, Button(15))
 button_Left = controllerButton("Left", "Directional", 0, Button(18))
 button_Right = controllerButton("Right", "Directional", 0, Button(23))
 
+# List of Buttons to Track
 buttonList = [ button_A, button_B, button_X, button_Y, button_LB, button_RB, button_LT, button_RT, button_Up, button_Down, button_Left, button_Right, button_Start, button_Select]
 
 print("Controller Init Loaded")

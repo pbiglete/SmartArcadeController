@@ -34,21 +34,24 @@ class session:
 
     def convertStatsToTxt(self, buttonList = [], *args):
         totalButtonCount = 0
-        sessionFile = open("session_{}.txt".format(self.sessionNumber), "a")
         
         for button in buttonList:
             totalButtonCount += button.buttonCount
             
         if totalButtonCount is 0:
+            print("Empty Session - NO FILE CREATED")
             pass
         else:
+            sessionFile = open("session_{}_{}.txt".format(self.sessionNumber, self.date.strftime("%b-%d-%Y")), "a")
+            sessionFile.write("Session {} Stats - {} @ {} - {}".format(self.sessionNumber, self.date.strftime("%b %d, %Y"), self.startTime.strftime("%H:%M:%S"), self.endTime.strftime("%H:%M:%S")))
             for button in buttonList:
-                sessionFile.write("{} | {} | Usage Rate: {}/{} ({:.3f}%) \n".format(button.name, button.actionType, button.buttonCount, totalButtonCount, ((button.buttonCount / totalButtonCount) * 100)))
+                sessionFile.write("{} | {} | Usage Rate: {}/{} ({:.2f}%) | Avg. Hold Time: {} sec \n".format(button.name, button.actionType, button.buttonCount, totalButtonCount, ((button.buttonCount / totalButtonCount) * 100), button.avg_HoldTime))
+                sessionButtonFile = open("session_{}_{} - {} timings.txt".format(self.sessionNumber, self.date.strftime("%b-%d-%Y"), button.name), "a")
+                sessionButtonFile.write("{} Timestamps for Session {}".format(button.name, self.sessionNumber))
+                
+                for timestamp in button.pressed_Timestamps:
+                    sessionButtonFile.write("{} sec".format(timestamp))
             
         sessionFile.close()
+        sessionButtonFile.close()
 
-
-
-
-
-        
