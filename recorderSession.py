@@ -43,14 +43,14 @@ class session:
             pass
         else:
             sessionFile = open("session_{}_{}.txt".format(self.sessionNumber, self.date.strftime("%b-%d-%Y")), "a")
-            sessionFile.write("Session {} Stats - {} @ {} - {}".format(self.sessionNumber, self.date.strftime("%b %d, %Y"), self.startTime.strftime("%H:%M:%S"), self.endTime.strftime("%H:%M:%S")))
+            sessionFile.write("Session {} Stats - {} @ {} - {}\n".format(self.sessionNumber, self.date.strftime("%b %d, %Y"), self.startTime.strftime("%H:%M:%S"), self.endTime.strftime("%H:%M:%S")))
             for button in buttonList:
                 sessionFile.write("{} | {} | Usage Rate: {}/{} ({:.2f}%) | Avg. Hold Time: {} sec \n".format(button.name, button.actionType, button.buttonCount, totalButtonCount, ((button.buttonCount / totalButtonCount) * 100), button.avg_HoldTime))
                 sessionButtonFile = open("session_{}_{} - {} timings.txt".format(self.sessionNumber, self.date.strftime("%b-%d-%Y"), button.name), "a")
-                sessionButtonFile.write("{} Timestamps for Session {}".format(button.name, self.sessionNumber))
+                sessionButtonFile.write("{} Timestamps for Session {}\n".format(button.name, self.sessionNumber))
                 
                 for timestamp in button.pressed_Timestamps:
-                    sessionButtonFile.write("{} sec".format(timestamp))
+                    sessionButtonFile.write("{} sec\n".format(timestamp))
             
         sessionFile.close()
         sessionButtonFile.close()
