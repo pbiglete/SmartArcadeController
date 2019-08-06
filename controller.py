@@ -62,6 +62,9 @@ class controllerButton:
         buttonLogPath = "session_{}_{}".format(sessionNumber, sessionDate.strftime("%b-%d-%Y"))
         buttonLogFilePath = os.path.join(buttonLogPath, buttonLogFileName)
 
+        if not os.path.exists(buttonLogPath):
+            os.makedirs(buttonLogPath)
+
         buttonLogFile = open(buttonLogFilePath, "a")
         buttonLogFile.write("Time: " + str("{:.3f} sec".format(self.pressed_Time)) +
                             " | " + self.name + ": " + str(self.buttonCount) + "\n")
