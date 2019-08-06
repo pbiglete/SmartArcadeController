@@ -1,4 +1,5 @@
 import time
+import os
 from gpiozero import Button
 
 class controllerButton:       
@@ -56,8 +57,12 @@ class controllerButton:
         self.clearButtonCount()
         self.pressed_Timestamps.clear()
 
-    def logActionToTxtFile(self):
-        buttonLogFile = open("Action_Log.txt", "a")
+    def logActionToTxtFile(self, sessionNumber, sessionDate):
+        buttonLogFileName = "Session_Action_Log_S{}_{}.txt".format(sessionNumber, sessionDate.strftime("%b_%d_%Y"))
+        buttonLogPath = "session_{}_{}".format(sessionNumber, sessionDate.strftime("%b-%d-%Y"))
+        buttonLogFilePath = os.path.join(buttonLogPath, buttonLogFileName)
+
+        buttonLogFile = open(buttonLogFilePath, "a")
         buttonLogFile.write("Time: " + str("{:.3f} sec".format(self.pressed_Time)) +
                             " | " + self.name + ": " + str(self.buttonCount) + "\n")
         buttonLogFile.close()

@@ -31,21 +31,21 @@ def main():
             print("Button Stats Cleared / Time Reset - Session Recorded")
             recordingSession.start()
         
-        checkButtonInput(buttonList, start_Time)
+        checkButtonInput(buttonList, start_Time, recordingSession.sessionNumber, recordingSession.date)
             
         sleep(0.01)
 
-def recordButtonPress(button, start_Time):
+def recordButtonPress(button, start_Time, sessionNumber, sessionDate):
     button.incrementButtonCount()
     button.calcCurrentButtonTimings(start_Time)
     button.showStats()
-    button.logActionToTxtFile()
+    button.logActionToTxtFile(sessionNumber, sessionDate)
 
-def checkButtonInput(buttonList, start_Time):
+def checkButtonInput(buttonList, start_Time, sessionNumber, sessionDate):
     # Check Button Inputs
     for button in buttonList:
         if button.gpioPin.is_pressed:
-            recordButtonPress(button, start_Time)
+            recordButtonPress(button, start_Time, sessionNumber, sessionDate)
 
 def clearAllButtonStats(buttonList):
     for button in buttonList:
