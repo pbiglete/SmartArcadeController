@@ -2,9 +2,10 @@ import cInit
 from time import sleep
 import time
 import datetime
+import asyncio
 from recorderSession import session
 
-def main():
+async def main():
     buttonList = cInit.buttonList
     sessionList = []
 
@@ -31,25 +32,35 @@ def main():
             print("Button Stats Cleared / Time Reset - Session Recorded")
             recordingSession.start()
         
-        checkButtonInput(buttonList, start_Time, recordingSession.sessionNumber, recordingSession.date)
+        await asyncio.wait([
+            checkButtonInput(buttonList, start_Time, recordingSession.sessionNumber, recordingSession.date)
+            ] )
             
-        sleep(0.01)
+        await asyncio.sleep(0.01)
 
-def recordButtonPress(button, start_Time, sessionNumber, sessionDate):
+async def recordButtonPress(button, start_Time, sessionNumber, sessionDate):
     button.incrementButtonCount()
     button.calcCurrentButtonTimings(start_Time)
     button.showStats()
     button.logActionToTxtFile(sessionNumber, sessionDate)
 
-def checkButtonInput(buttonList, start_Time, sessionNumber, sessionDate):
+async def checkButtonInput(buttonList, start_Time, sessionNumber, sessionDate):
     # Check Button Inputs
     for button in buttonList:
+        # Check for a Secondary Button Press
+        for button2 in buttonList:
+            if button.gpioPin.is_pressed and button2.gpioPin.is_pressed and button.name != button2.name:
+                print("{} & {} Pressed".format(button.name, button2.name))
+                await recordButtonPress(button, start_Time, sessionNumber, sessionDate)
+                await recordButtonPress(button2, start_Time, sessionNumber, sessionDate)
+        # Primary Button Press
         if button.gpioPin.is_pressed:
-            recordButtonPress(button, start_Time, sessionNumber, sessionDate)
+            await recordButtonPress(button, start_Time, sessionNumber, sessionDate)
 
 def clearAllButtonStats(buttonList):
     for button in buttonList:
         button.clearAllStats()
-    
+
 if __name__ == '__main__':
-    main()
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())
