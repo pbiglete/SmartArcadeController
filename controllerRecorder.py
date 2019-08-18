@@ -32,10 +32,7 @@ async def main():
             print("Button Stats Cleared / Time Reset - Session Recorded")
             recordingSession.start()
         
-        await asyncio.wait([
-            checkButtonInput(buttonList, start_Time, recordingSession.sessionNumber, recordingSession.date)
-            ] )
-            
+        await asyncio.gather(checkButtonInput(buttonList, start_Time, recordingSession.sessionNumber, recordingSession.date))
         await asyncio.sleep(0.01)
 
 async def recordButtonPress(button, start_Time, sessionNumber, sessionDate):
@@ -47,12 +44,6 @@ async def recordButtonPress(button, start_Time, sessionNumber, sessionDate):
 async def checkButtonInput(buttonList, start_Time, sessionNumber, sessionDate):
     # Check Button Inputs
     for button in buttonList:
-        # Check for a Secondary Button Press
-        for button2 in buttonList:
-            if button.gpioPin.is_pressed and button2.gpioPin.is_pressed and button.name != button2.name:
-                print("{} & {} Pressed".format(button.name, button2.name))
-                await recordButtonPress(button, start_Time, sessionNumber, sessionDate)
-                await recordButtonPress(button2, start_Time, sessionNumber, sessionDate)
         # Primary Button Press
         if button.gpioPin.is_pressed:
             await recordButtonPress(button, start_Time, sessionNumber, sessionDate)
