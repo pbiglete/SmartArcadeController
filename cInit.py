@@ -23,7 +23,7 @@ buttonSpecialList = [ button_Start, button_Select ]
 
 print("Controller Init Loaded")
 print("----------------------")
-print("{} Buttons ready to be tracked".format(buttonList.count))
+print("{} Buttons ready to be tracked".format(len(buttonList)))
 for button in buttonList:
     button.showStats()
 print("----------------------")

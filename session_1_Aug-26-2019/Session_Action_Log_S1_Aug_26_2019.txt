@@ -1,0 +1,166 @@
+Time: 1.343 sec | Right: 1
+Time: 1.624 sec | Right: 2
+Time: 1.767 sec | Right: 3
+Time: 1.929 sec | Right: 4
+Time: 2.070 sec | Right: 5
+Time: 2.207 sec | Right: 6
+Time: 2.319 sec | Right: 7
+Time: 2.450 sec | Right: 8
+Time: 2.716 sec | Up: 1
+Time: 2.862 sec | Up: 2
+Time: 3.013 sec | Up: 3
+Time: 3.154 sec | Up: 4
+Time: 3.294 sec | Up: 5
+Time: 3.309 sec | Up: 6
+Time: 3.450 sec | Up: 7
+Time: 3.601 sec | Up: 8
+Time: 3.746 sec | Up: 9
+Time: 3.893 sec | Up: 10
+Time: 4.335 sec | B Button: 1
+Time: 4.539 sec | B Button: 2
+Time: 4.665 sec | B Button: 3
+Time: 4.758 sec | RT Button: 1
+Time: 4.895 sec | B Button: 4
+Time: 5.008 sec | RT Button: 2
+Time: 5.105 sec | B Button: 5
+Time: 5.169 sec | LB Button: 1
+Time: 5.698 sec | RT Button: 3
+Time: 5.766 sec | LT Button: 1
+Time: 5.873 sec | RT Button: 4
+Time: 5.987 sec | LT Button: 2
+Time: 6.081 sec | B Button: 6
+Time: 6.110 sec | LB Button: 2
+Time: 6.204 sec | LT Button: 3
+Time: 6.370 sec | B Button: 7
+Time: 6.464 sec | LT Button: 4
+Time: 6.518 sec | RT Button: 5
+Time: 6.632 sec | LT Button: 5
+Time: 6.732 sec | B Button: 8
+Time: 6.857 sec | LT Button: 6
+Time: 6.960 sec | B Button: 9
+Time: 7.073 sec | LT Button: 7
+Time: 7.153 sec | B Button: 10
+Time: 7.252 sec | B Button: 11
+Time: 7.376 sec | B Button: 12
+Time: 7.512 sec | B Button: 13
+Time: 7.666 sec | B Button: 14
+Time: 7.875 sec | LT Button: 8
+Time: 8.001 sec | LT Button: 9
+Time: 8.144 sec | LT Button: 10
+Time: 8.274 sec | LT Button: 11
+Time: 8.423 sec | LT Button: 12
+Time: 8.601 sec | LB Button: 3
+Time: 8.614 sec | LB Button: 4
+Time: 8.769 sec | LB Button: 5
+Time: 8.905 sec | LB Button: 6
+Time: 9.019 sec | LB Button: 7
+Time: 9.225 sec | RB Button: 1
+Time: 9.359 sec | RB Button: 2
+Time: 9.502 sec | RB Button: 3
+Time: 9.624 sec | RB Button: 4
+Time: 9.752 sec | RB Button: 5
+Time: 9.925 sec | Y Button: 1
+Time: 10.065 sec | Y Button: 2
+Time: 10.204 sec | Y Button: 3
+Time: 10.217 sec | Y Button: 4
+Time: 10.329 sec | Y Button: 5
+Time: 10.532 sec | X Button: 1
+Time: 10.655 sec | X Button: 2
+Time: 10.803 sec | X Button: 3
+Time: 10.939 sec | X Button: 4
+Time: 11.139 sec | A Button: 1
+Time: 11.285 sec | B Button: 15
+Time: 11.375 sec | A Button: 2
+Time: 11.467 sec | B Button: 16
+Time: 11.583 sec | A Button: 3
+Time: 11.671 sec | B Button: 17
+Time: 11.754 sec | A Button: 4
+Time: 11.924 sec | B Button: 18
+Time: 12.058 sec | A Button: 5
+Time: 12.143 sec | B Button: 19
+Time: 12.225 sec | A Button: 6
+Time: 12.313 sec | B Button: 20
+Time: 12.473 sec | A Button: 7
+Time: 12.552 sec | RT Button: 6
+Time: 12.670 sec | A Button: 8
+Time: 12.713 sec | B Button: 21
+Time: 12.774 sec | RT Button: 7
+Time: 12.879 sec | A Button: 9
+Time: 12.946 sec | B Button: 22
+Time: 13.036 sec | RT Button: 8
+Time: 13.177 sec | B Button: 23
+Time: 13.253 sec | RT Button: 9
+Time: 13.369 sec | B Button: 24
+Time: 13.498 sec | RT Button: 10
+Time: 13.610 sec | B Button: 25
+Time: 13.624 sec | B Button: 26
+Time: 13.777 sec | RT Button: 11
+Time: 13.955 sec | Y Button: 6
+Time: 14.095 sec | RB Button: 6
+Time: 14.153 sec | Y Button: 7
+Time: 14.254 sec | RB Button: 7
+Time: 14.356 sec | Y Button: 8
+Time: 14.573 sec | B Button: 27
+Time: 14.723 sec | RT Button: 12
+Time: 14.763 sec | B Button: 28
+Time: 14.915 sec | RT Button: 13
+Time: 15.056 sec | B Button: 29
+Time: 15.190 sec | RT Button: 14
+Time: 15.203 sec | RT Button: 15
+Time: 15.268 sec | B Button: 30
+Time: 15.436 sec | RT Button: 16
+Time: 15.501 sec | A Button: 10
+Time: 15.675 sec | RT Button: 17
+Time: 15.761 sec | B Button: 31
+Time: 15.918 sec | A Button: 11
+Time: 15.946 sec | B Button: 32
+Time: 16.079 sec | RT Button: 18
+Time: 16.296 sec | A Button: 12
+Time: 16.455 sec | B Button: 33
+Time: 16.602 sec | A Button: 13
+Time: 16.735 sec | B Button: 34
+Time: 16.948 sec | X Button: 5
+Time: 17.092 sec | Y Button: 9
+Time: 17.244 sec | X Button: 6
+Time: 17.343 sec | Y Button: 10
+Time: 17.630 sec | B Button: 35
+Time: 17.794 sec | A Button: 14
+Time: 17.907 sec | B Button: 36
+Time: 18.030 sec | A Button: 15
+Time: 18.132 sec | B Button: 37
+Time: 18.284 sec | X Button: 7
+Time: 18.296 sec | X Button: 8
+Time: 18.461 sec | Y Button: 11
+Time: 18.583 sec | X Button: 9
+Time: 18.666 sec | Y Button: 12
+Time: 18.936 sec | X Button: 10
+Time: 18.993 sec | Y Button: 13
+Time: 19.064 sec | Y Button: 14
+Time: 19.313 sec | B Button: 38
+Time: 19.477 sec | B Button: 39
+Time: 19.605 sec | B Button: 40
+Time: 19.766 sec | B Button: 41
+Time: 19.972 sec | A Button: 16
+Time: 20.140 sec | A Button: 17
+Time: 20.178 sec | B Button: 42
+Time: 20.324 sec | A Button: 18
+Time: 20.370 sec | B Button: 43
+Time: 20.475 sec | RT Button: 19
+Time: 20.621 sec | A Button: 19
+Time: 20.663 sec | B Button: 44
+Time: 20.732 sec | RT Button: 20
+Time: 20.897 sec | A Button: 20
+Time: 20.946 sec | B Button: 45
+Time: 21.064 sec | RT Button: 21
+Time: 21.275 sec | A Button: 21
+Time: 21.452 sec | A Button: 22
+Time: 21.771 sec | B Button: 46
+Time: 21.909 sec | A Button: 23
+Time: 22.054 sec | A Button: 24
+Time: 22.194 sec | B Button: 47
+Time: 22.377 sec | A Button: 25
+Time: 22.501 sec | B Button: 48
+Time: 22.703 sec | A Button: 26
+Time: 22.892 sec | B Button: 49
+Time: 22.963 sec | RT Button: 22
+Time: 23.075 sec | A Button: 27

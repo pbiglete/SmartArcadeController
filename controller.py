@@ -29,7 +29,7 @@ class controllerButton:
         
     def calcCurrentButtonTimings(self, start_Time):
         self.pressed_Time = time.time() - start_Time
-        self.pressed_Timestamps.append(self.pressed_Time)
+        self.pressed_Timestamps.append(self.pressed_Time) # Saves Timing
         self.gpioPin.wait_for_release()
         self.released_Time = time.time() - start_Time
         self.hold_Time = self.released_Time - self.pressed_Time

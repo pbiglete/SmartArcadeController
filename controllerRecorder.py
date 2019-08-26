@@ -1,8 +1,10 @@
 import cInit
 from time import sleep
 import time
+import os
 import datetime
 import asyncio
+import json
 from recorderSession import session
 
 async def main():
@@ -21,10 +23,14 @@ async def main():
 
         # Reset & Record Session
         if cInit.button_Select.gpioPin.is_held:
-            print("Release to Clear Button Stats and Reset Time")
+            print("Release to Clear Button Stats and Reset Time")        
             cInit.button_Select.gpioPin.wait_for_release()
             recordingSession.end(buttonList)
-            sessionList.append(recordingSession)
+            sessionList.append(recordingSession.data)
+            
+            with open('sessions.json', 'w') as JSON_file:
+                json.dump(sessionList, JSON_file, indent=4)
+                
             sessionNumber += 1
             recordingSession = session(sessionNumber, datetime.datetime.now().date(), datetime.datetime.now().time())
             clearAllButtonStats(buttonList)

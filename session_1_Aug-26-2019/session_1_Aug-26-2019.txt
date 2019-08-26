@@ -1,0 +1,13 @@
+Session 1 Stats - Aug 26, 2019 @ 13:49:21 - 13:49:48
+A Button | Special | Usage Rate: 27/166 (16.27%) | Avg. Hold Time: 0.085 sec 
+B Button | Heavy | Usage Rate: 49/166 (29.52%) | Avg. Hold Time: 0.071 sec 
+X Button | Light | Usage Rate: 10/166 (6.02%) | Avg. Hold Time: 0.076 sec 
+Y Button | Medium | Usage Rate: 14/166 (8.43%) | Avg. Hold Time: 0.078 sec 
+LB Button | Assist 1 | Usage Rate: 7/166 (4.22%) | Avg. Hold Time: 0.126 sec 
+RB Button | Dragon Rush | Usage Rate: 7/166 (4.22%) | Avg. Hold Time: 0.059 sec 
+LT Button | Assist 2 | Usage Rate: 12/166 (7.23%) | Avg. Hold Time: 0.078 sec 
+RT Button | Super Dash | Usage Rate: 22/166 (13.25%) | Avg. Hold Time: 0.080 sec 
+Up | Directional | Usage Rate: 10/166 (6.02%) | Avg. Hold Time: 0.078 sec 
+Down | Directional | Usage Rate: 0/166 (0.00%) | Avg. Hold Time: 0.000 sec 
+Left | Directional | Usage Rate: 0/166 (0.00%) | Avg. Hold Time: 0.000 sec 
+Right | Directional | Usage Rate: 8/166 (4.82%) | Avg. Hold Time: 0.063 sec 
