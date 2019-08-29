@@ -5,14 +5,18 @@ import os
 import datetime
 import asyncio
 import json
+import comboInit
 from recorderSession import session
 
+buttonList = cInit.buttonList
+comboQueue = []
+comboString = []
+comboPrevTime = []
+comboStringList = comboInit.comboList
+sessionList = []
+
 async def main():
-    buttonList = cInit.buttonList
-    sessionList = []
-
     sessionNumber = 0
-
     start_Time = time.time()
     recordingSession = session(sessionNumber, datetime.datetime.now().date(), datetime.datetime.now().time())
 
@@ -33,12 +37,12 @@ async def main():
                 
             sessionNumber += 1
             recordingSession = session(sessionNumber, datetime.datetime.now().date(), datetime.datetime.now().time())
-            clearAllButtonStats(buttonList)
+            clearAllButtonStats()
             start_Time = time.time()
             print("Button Stats Cleared / Time Reset - Session Recorded")
             recordingSession.start()
         
-        await asyncio.gather(checkButtonInput(buttonList, start_Time, recordingSession.sessionNumber, recordingSession.date))
+        await asyncio.gather(checkButtonInput(start_Time, recordingSession.sessionNumber, recordingSession.date))
         await asyncio.sleep(0.01)
 
 async def recordButtonPress(button, start_Time, sessionNumber, sessionDate):
@@ -47,14 +51,43 @@ async def recordButtonPress(button, start_Time, sessionNumber, sessionDate):
     button.showStats()
     button.logActionToTxtFile(sessionNumber, sessionDate)
 
-async def checkButtonInput(buttonList, start_Time, sessionNumber, sessionDate):
+    # Button Combo String Detection      
+    if len(comboString) == 0: #combo string is empty, start combo
+        comboPrevTime.append(button.pressed_Time) # Save Current Time
+        comboString.append(button.actionType) # Add to Combo Chain/String
+        print("Combo Started! - {}".format(comboString))
+    elif len(comboString) > 0: #combo string is ongoing
+        currIndex = len(comboPrevTime) - 1
+        timeDiff = button.pressed_Time - comboPrevTime[currIndex]
+        print("Combo Length = {}".format(len(comboString)))
+        print("Curr: {:.3f} sec | Prev: {:.3f} sec | Diff: {:.3f} sec".format(button.pressed_Time, comboPrevTime[currIndex], timeDiff))
+        # Current Pressed Time - Previous Pressed Time
+        if (timeDiff <= 1.25):
+            comboString.append(button.actionType)
+            print("Combo Continued!")
+            print("Current Combo String: {}".format(comboString))
+        elif (timeDiff > 1.25):
+            # if a valid combo string was last executed add to list of combo strings
+            # then clear string for next combo
+            comboString.clear()
+            comboPrevTime.clear()
+            print("Combo Broken!")
+    
+    # Check if current comboString Matches
+    for combo in comboStringList:
+        if(combo.comboString == comboString):
+            print("{} Detected".format(combo.name))
+            comboString.clear()
+    
+async def checkButtonInput(start_Time, sessionNumber, sessionDate):
     # Check Button Inputs
     for button in buttonList:
         # Primary Button Press
         if button.gpioPin.is_pressed:
-            await recordButtonPress(button, start_Time, sessionNumber, sessionDate)
+            await asyncio.gather(recordButtonPress(button, start_Time, sessionNumber, sessionDate))
+            await asyncio.sleep(0.01)
 
-def clearAllButtonStats(buttonList):
+def clearAllButtonStats():
     for button in buttonList:
         button.clearAllStats()
 

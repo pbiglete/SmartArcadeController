@@ -1,0 +1,7 @@
+Time: 196009.042 sec | Down: 1
+Time: 196009.197 sec | Left: 1
+Time: 196010.575 sec | Down: 2
+Time: 196010.591 sec | Down: 3
+Time: 196010.803 sec | Left: 2
+Time: 196011.992 sec | Down: 4
+Time: 196012.184 sec | Left: 3

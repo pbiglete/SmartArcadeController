@@ -2,7 +2,7 @@ import time
 import os
 from gpiozero import Button
 
-class controllerButton:       
+class controllerButton():       
     def __init__(self, buttonName = "", actionType = "None", buttonCount = 0, gpioPIN = None):
         self.name = buttonName
         self.actionType = actionType
@@ -36,6 +36,8 @@ class controllerButton:
         self.sum_HoldTime = self.sum_HoldTime + self.hold_Time
         self.avg_HoldTime = self.sum_HoldTime / self.buttonCount
     
+    def clearCurrentPressedTime(self):
+        self.pressed_Time = 0
     def clearCurrentButtonTimings(self):
         self.pressed_Time = 0
         self.released_Time = 0
