@@ -12,7 +12,7 @@ buttonList = cInit.buttonList
 comboQueue = []
 comboString = []
 comboPrevTime = []
-comboStringList = comboInit.comboList
+comboStringDict = comboInit.comboDict
 sessionList = []
 
 async def main():
@@ -59,25 +59,27 @@ async def recordButtonPress(button, start_Time, sessionNumber, sessionDate):
     elif len(comboString) > 0: #combo string is ongoing
         currIndex = len(comboPrevTime) - 1
         timeDiff = button.pressed_Time - comboPrevTime[currIndex]
-        print("Combo Length = {}".format(len(comboString)))
-        print("Curr: {:.3f} sec | Prev: {:.3f} sec | Diff: {:.3f} sec".format(button.pressed_Time, comboPrevTime[currIndex], timeDiff))
+        print("Combo Length = {} | Curr: {:.3f} sec | Prev: {:.3f} sec | Diff: {:.3f} sec".format(len(comboString), button.pressed_Time, comboPrevTime[currIndex], timeDiff))
         # Current Pressed Time - Previous Pressed Time
-        if (timeDiff <= 1.25):
+        if (timeDiff <= 1.5):
             comboString.append(button.actionType)
-            print("Combo Continued!")
-            print("Current Combo String: {}".format(comboString))
-        elif (timeDiff > 1.25):
+            print("Combo Continued! -> Current Combo String: {}".format(comboString))
+            
+            # Check if current comboString Matches
+            if len(comboString) > 1:       
+                comboStr = ' '.join(map(str, comboString))
+                # print(comboStr)
+                if(comboStr in comboStringDict):
+                    print("{} Excuted!".format(comboStringDict[comboStr].name))
+                    comboString.clear()  
+        elif (timeDiff > 1.5):
             # if a valid combo string was last executed add to list of combo strings
             # then clear string for next combo
             comboString.clear()
             comboPrevTime.clear()
-            print("Combo Broken!")
+            print("Combo Broken -> Combo String Reset!")
     
-    # Check if current comboString Matches
-    for combo in comboStringList:
-        if(combo.comboString == comboString):
-            print("{} Detected".format(combo.name))
-            comboString.clear()
+
     
 async def checkButtonInput(start_Time, sessionNumber, sessionDate):
     # Check Button Inputs
