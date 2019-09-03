@@ -3,9 +3,10 @@ import os
 from gpiozero import Button
 
 class controllerButton():       
-    def __init__(self, buttonName = "", actionType = "None", buttonCount = 0, gpioPIN = None):
+    def __init__(self, buttonName = "", actionType = "None", isDirectional = False, buttonCount = 0, gpioPIN = None):
         self.name = buttonName
         self.actionType = actionType
+        self.isDirectional = isDirectional
         self.buttonCount = buttonCount
         self.gpioPin = gpioPIN
         self.pressed_Time = 0

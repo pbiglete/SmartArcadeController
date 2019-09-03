@@ -25,6 +25,7 @@ QuarterCircleRightLight = combo("Quarter Circle Right Light", "Down Right Light"
 QuarterCircleLeftLight = combo("Quarter Circle Left Light", "Down Left Light")
 QuarterCircleRightMed = combo("Quarter Circle Right Medium", "Down Right Medium")
 QuarterCircleLeftMed = combo("Quarter Circle Left Medium", "Down Left Medium")
+DownHeavy = combo("Down Heavy (Launcher)", "Down Heavy")
 LvlOneSuper = combo("Level One Super", "Down Right Heavy")
 LvlThreeSuper = combo("Level Three Super", "Down Left Heavy")
 

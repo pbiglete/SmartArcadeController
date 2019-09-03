@@ -61,7 +61,7 @@ async def recordButtonPress(button, start_Time, sessionNumber, sessionDate):
         timeDiff = button.pressed_Time - comboPrevTime[currIndex]
         print("Combo Length = {} | Curr: {:.3f} sec | Prev: {:.3f} sec | Diff: {:.3f} sec".format(len(comboString), button.pressed_Time, comboPrevTime[currIndex], timeDiff))
         # Current Pressed Time - Previous Pressed Time
-        if (timeDiff <= 1.5):
+        if (timeDiff <= 1.275) and (button.isDirectional == False):
             comboString.append(button.actionType)
             print("Combo Continued! -> Current Combo String: {}".format(comboString))
             
@@ -70,24 +70,37 @@ async def recordButtonPress(button, start_Time, sessionNumber, sessionDate):
                 comboStr = ' '.join(map(str, comboString))
                 # print(comboStr)
                 if(comboStr in comboStringDict):
-                    print("{} Excuted!".format(comboStringDict[comboStr].name))
-                    comboString.clear()  
-        elif (timeDiff > 1.5):
-            # if a valid combo string was last executed add to list of combo strings
+                    print("{} Excuted! -> Combo String Reset!".format(comboStringDict[comboStr].name))
+                    comboString.clear()
+                    comboPrevTime.clear()
+        elif (timeDiff > 1.275) and (button.isDirectional == False):
             # then clear string for next combo
             comboString.clear()
             comboPrevTime.clear()
             print("Combo Broken -> Combo String Reset!")
-    
-
-    
+        elif (timeDiff <= 0.250) and (button.isDirectional == True):
+            comboString.append(button.actionType)
+            print("Combo Continued! -> Current Combo String: {}".format(comboString))       
+            # Check if current comboString Matches
+            if len(comboString) > 1:       
+                comboStr = ' '.join(map(str, comboString))
+                # print(comboStr)
+                if(comboStr in comboStringDict):
+                    print("{} Excuted! -> Combo String Reset!".format(comboStringDict[comboStr].name))
+                    comboString.clear()
+                    comboPrevTime.clear()
+        elif (timeDiff > 0.250) and (button.isDirectional == True):
+            # then clear string for next combo
+            comboString.clear()
+            comboPrevTime.clear()
+            print("Combo Broken -> Combo String Reset!")        
+                
 async def checkButtonInput(start_Time, sessionNumber, sessionDate):
     # Check Button Inputs
     for button in buttonList:
         # Primary Button Press
         if button.gpioPin.is_pressed:
-            await asyncio.gather(recordButtonPress(button, start_Time, sessionNumber, sessionDate))
-            await asyncio.sleep(0.01)
+            await recordButtonPress(button, start_Time, sessionNumber, sessionDate)
 
 def clearAllButtonStats():
     for button in buttonList:
