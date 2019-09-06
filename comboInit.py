@@ -6,12 +6,14 @@ QuarterCircleRight = combo("Quarter Circle Right", "Down Right", "Directional")
 # Down Left (Quarter Circle Left)
 QuarterCircleLeft = combo("Quarter Circle Left", "Down Left", "Directional")
 # Left Down Right (Half Circle Right)
-# Rught Down Left (Half Circle Left)
+HalfCIrcleRight = combo("Half Circle Right", "Left Down Right", "Directional")
+# Right Down Left (Half Circle Left)
+HalfCircleLeft = combo("Half Circle Left", "Right Down Left", "Directional")
 # Left Left (Dash Left)
 DashLeft = combo("Dash Left", "Left Left", "Directional")
 # Right RIght (Dash Right)
 DashRight = combo("Dash Right", "Right Right", "Directional")
-# Up Right Righ (Air Dash Right)
+# Up Right Right (Air Dash Right)
 AirDashRight = combo("Air Dash Right", "Up Right Right", "Directional")
 # Up Left Left (Air Dash Left)
 AirDashLeft = combo("Air Dash Left", "Up Left Left", "Directional")
@@ -40,7 +42,8 @@ comboDict = {
     QuarterCircleLeftMed.comboString : QuarterCircleLeftMed,
     LightAutoCombo.comboString : LightAutoCombo,
     MedAutoCombo.comboString : MedAutoCombo,
-    BasicChainCombo.comboString: BasicChainCombo,
+    BasicChainCombo.comboString : BasicChainCombo,
+    DownHeavy.comboString : DownHeavy,
     LvlOneSuper.comboString : LvlOneSuper,
     LvlThreeSuper.comboString : LvlThreeSuper
 }

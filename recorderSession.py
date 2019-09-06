@@ -22,12 +22,12 @@ class session:
         self.startTime = datetime.datetime.now().time()
         print("Session {} Started - {} : {}".format(self.sessionNumber, self.date.strftime("%b %d, %Y"), self.startTime.strftime("%H:%M:%S")))
 
-    def end(self, buttonList = [], *args):
+    def end(self, buttonList = [], comboStringDict = {}, *args):
         self.endTime = datetime.datetime.now().time()
         print("Session {} Ended - {}".format(self.sessionNumber, self.endTime.strftime("%H:%M:%S")))
         self.buttonList = buttonList
         self.convertStatsToTxt(buttonList)
-        self.data = self.convertSessionToJSONString(buttonList)
+        self.data = self.convertSessionToJSONString(buttonList, comboStringDict)
         # self.graphStats()
 
 #    def graphStats(self):
@@ -45,7 +45,7 @@ class session:
 #        plt.axis('equal')
 #        plt.show()
 
-    def convertSessionToJSONString(self, buttonList = [], * args):   
+    def convertSessionToJSONString(self, buttonList = [], comboStringDict = {}, *args):   
         # Create a JSON object for each recorded object
         # Session Stats
         # Session Timings
